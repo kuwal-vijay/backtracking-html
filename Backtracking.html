@@ -8,16 +8,22 @@
     <title>Backtracking Project</title>
 
     <style>
-        p {
-            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-300) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-29) var(--unnamed-font-family-inter);
-letter-spacing: var(--unnamed-character-spacing-0);
-color: var(--unnamed-color-858585);
-text-align: left;
-font: normal normal 300 18px/29px Inter;
-letter-spacing: 0px;
-color: #858585;
-opacity: 1;
+        head{
+        top: 0px;
+        left: 0px;
+        width: 1366px;
+        height: 20907px;
         }
+        p {
+           
+           letter-spacing: 0;
+           text-align: left;
+           font: normal normal 300 18px/29px Inter;
+           letter-spacing: 0px;
+           color: #858585;
+           opacity: 1;
+        }
+        
         h1 {
             background-color: red; 
             color:white;
@@ -34,37 +40,27 @@ opacity: 1;
            
             border: 1px solid #D8D8D8;
             border-radius: 10px;
-            opacity: 1;
             text-align: left;
-            font: var(--unnamed-font-style-normal) normal normal var(--unnamed-font-size-18)/40px var(--unnamed-font-family-inter);
-letter-spacing: var(--unnamed-character-spacing-0);
-color: var(--unnamed-color-007eb4);
-text-align: left;
-font: normal normal normal 18px/40px Inter;
-letter-spacing: 0px;
-color: #007EB4;
-opacity: 1;
+            font: normal normal normal 18px/40px Inter;
+            letter-spacing: 0px;
+            color: #007EB4;
+            opacity: 1;
         }
 
         ol {
-            font: var(--unnamed-font-style-normal) normal normal var(--unnamed-font-size-18)/var(--unnamed-line-spacing-30) var(--unnamed-font-family-inter);
-letter-spacing: var(--unnamed-character-spacing-0);
-text-align: left;
-font: normal normal normal 18px/30px Inter;
-letter-spacing: 0px;
-color: #424242;
-opacity: 1;
+            text-align: left;
+            font: normal normal normal 18px/30px Inter;
+            letter-spacing: 0px;
+            color: #424242;
+            opacity: 1;
         }
 
         li {
-            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-300) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-30) var(--unnamed-font-family-inter);
-letter-spacing: var(--unnamed-character-spacing-0);
-color: var(--unnamed-color-858585);
-text-align: left;
-font: normal normal 300 18px/30px Inter;
-letter-spacing: 0px;
-color: #858585;
-opacity: 1;
+            text-align: left;
+            font: normal normal 300 18px/30px Inter;
+            letter-spacing: 0px;
+            color: #858585;
+            opacity: 1;
         }
     
     </style>
@@ -105,7 +101,7 @@ opacity: 1;
         </b>
         </p>
         <h2>The backtracking algorithm.</h2>
-        <font size="4" color="blue">
+        
         <pre>
             boolen solve(Node n) {
                 if n is a leaf node{
@@ -119,7 +115,7 @@ opacity: 1;
                 }
             }
         </pre>
-    </font>
+    
 
         <p><b>Notice that the algorithm is expressed as a boolean function. This is essential to understanding the algorithm. If solve(n) is true, that means node n is part of a solution--that is, node n is one of the nodes on a path from the root to some goal node. We say that n is solvable. If solve(n) is false, then there is no path that includes n to any goal node. </b> </p>
         <h4>How does this work?</h4>
@@ -129,27 +125,25 @@ opacity: 1;
         </ul>    
         <p>Hence, to decide whether any non-leaf node n is solvable (part of a path to a goal node), all you have to do is test whether any <br> child of n is solvable. This is done recursively, on each child of n. In the above code, this is done by the lines </p>
 
-        <font size="4" color="blue">
+        
             <pre>
                 for each child c of n {
                     if solve(c) succeeds, return true
                 }
                 return false
             </pre>
-        </font>
+    
         <p>
             Eventually the recursion will "bottom" out at aleaf node. If the leaf node is a goal node, it is solvable; if the leaf node is not a goal <br> node, it is not solvable. This is our base case. In the above code, this is done by the lines
 
         </p>
 
-        <font size="4" color="blue">
             <pre>
                 if n is a leaf node {
                     if the leaf is a a goal node, return true
                     else return false
                 }
             </pre>
-        </font>
 
         <p>
             The backtracking algorithm is simple but important. You should understand it throughly. Another way of stating it is as follows:
@@ -167,7 +161,6 @@ opacity: 1;
         <h3>Non-recursive backtracking, using a stack</h3>
         <p>Backtracking is a rather typical recursive algorithm, and any recursive algorithm can be written as a stack algorithm. In fact, <br> that is how your recursive algorithms are translated into machine or assembly language.</p>
 
-        <font size="4" color="blue">
             <pre>
                 boolean solve (Node n) {
                     put node n on the stack;
@@ -186,7 +179,6 @@ opacity: 1;
                      }
                 }
             </pre>
-        </font>
 
         <P>
             Starting from the root, the only nodes that can be pushed onto the stack are the children of the node currently on the top of the <br> stack, and these are only pushed on one child at a time; hence, the nodes on the stack at  all times describe a valid path in the <br> tree. Nodes are removed from the stack only when it is known that they have no goal nodes among their descendents. Therefore, <br>if the root node gets removed (making the stack empty), there must have been no goal nodes at all, and no solution to the <br> problem.
@@ -201,7 +193,6 @@ opacity: 1;
 
     <p>Here is the recursive backtracking algorithm, modified slightly to print (in reverse order) the nodes along the successful path:</p>
 
-    <font size="4" color="blue">
         <pre>
             boolean solve (Node n) {
                 if n is a leaf node {
@@ -221,7 +212,6 @@ opacity: 1;
                 }
             }
         </pre>
-    </font>
 
      <h3>Keeping backtracking simple</h3>
      <p>
@@ -251,7 +241,7 @@ opacity: 1;
         <p> A binary tree is a data structure composed of nodes. One node is designated as the root node. Each node can reference (point <br>to) zero, one, or two other nodes, which are called its childern. The childernare referred to as the left child and/or the right child. <br>All nodes are reachable (by one or more steps) from the root node, and there are no cycles. For our purposes, although this is not <br>part of the defination of a binary tree, we will say that a node might or might not be a goal node, and will contain its name. The <br>first example in this paper (which we repeat here) shows a binary tree.</p>
         <p></p>
         <p>Here's a defination of the Binary Tree class: </p>
-        <font size="4" color="blue">
+       
             <pre>
                 public class BinaryTree {
                     BinaryTree leftChild = null;
@@ -266,10 +256,10 @@ opacity: 1;
                     }
                 }
             </pre>
-        </font>
+       
         <p></p>
         <p> Next we will create a TreeSearch class, and in it we will define a method makeTree() which constructs the above binary tree.</p>
-        <font size="4" color="blue">
+        
             <pre>
                 static BinaryTree makeTree() {
                     BinaryTree root, a, b, c, d, e, f;
@@ -283,19 +273,19 @@ opacity: 1;
                     return root;
                 }
             </pre>
-        </font>
+
         <p></p>
         <p> Here's a main program to create a binary tree and try to solve it:</p>
-        <font size="4" color="blue">
+        
             <pre>
                 public static void main(String args[]) {
                     BinaryTree tree = makeTree();
                     System.out.printIn(solvable(tree));
                 }
             </pre>
-        </font>
+       
         <p> And finally, here's the recursive backtracking routine to "solve" the binary tree by finding a goal node.</p>
-        <font size="4" color="blue">
+
             <pre>
                 static boolean solvable(BinaryTree node) {
                     /*1*/ if (node == null) return false;
@@ -306,7 +296,7 @@ opacity: 1;
 
                 }
             </pre>
-        </font>
+       
         <p> Here's what the numbered lines are doing:</p>
         <ol>
             <li> If we are given a null node, it's not solvable. This statement is so that we can call this method with the children of a node, without <br> first checking whether those children actually exist.</li>
@@ -325,7 +315,7 @@ opacity: 1;
         <p></p>
         <p> Each time we ask for another node, we have to check if it is null. In the above we put that check as the first thing in solvable. An <br> alternate would be to check first whether each child exists, and recur only if they do. Here's that alternative  version:</p>
         <p></p>
-        <font size="4" color="blue">
+
             <pre>
                 static boolean solvable(BinaryTree node) {
 
@@ -339,7 +329,7 @@ opacity: 1;
 
                 }
             </pre>
-        </font>
+       
         <p> I think the first version is simpler, but the second version is slightly more efficent.</p>
         <hr>
         <h3>What are the children?</h3>
@@ -365,7 +355,7 @@ opacity: 1;
         <p></p>
         <p>Here's the code for method 1:</p>
         
-        <font size="4" color="blue">
+        
             <pre>
                 boolean explore1(int row, int column, int color) {
                     if (row >= NUM_ROWS)return mapIsOK();
@@ -377,8 +367,9 @@ opacity: 1;
                          return false;
                  }
             </pre>
-        </font>
+       
         <p>And here's the code for method 2:</p>
+
         <pre> 
             boolean explore2(int row, int column, int color) {
              if (row >= NUM_ROWS)return true;
@@ -451,7 +442,9 @@ opacity: 1;
                                 return false;
                             }
                         </pre>
+
                         <p>To use this code, we modify solvable as follows:</p>
+
                         <pre>
                             static boolean solvable(BinaryTree node) {
                                 enter(node);
@@ -462,10 +455,12 @@ opacity: 1;
                                 return no(node);
                             }
                         </pre>
+
                         <p>And we get these results:</p>
                         <p>Entering solvable(Root) <br>| Entering solvable(A) <br>| | Entering solvable(C) <br> | | | Entering solvable(null) <br> | | | solvable(null) returns false <br> | | | Entering solvable(null) <br> | | | solvable(null) returns false <br> | | solvable(C) returns false <br> | | Entering solvable(D) <br> | | | Entering solvable(null) <br> | | | solvable(null) returns false <br> | | | Entering solvable(null) <br> | | | solvable(null) returns false <br> | | solvable(D) returns false <br> | solvable(A) returns false <br> | Entering solvable(B) <br> | | Entering solvable(E) <br> | | solvable(E) returns true <br> | solvable(B) returns true solvable(Root) returns true true</p>
                         <p><b>Trick #3: Never discard your debugging statements.</b></p>
                         <p>Writing debugging statements is programming, too. Often it's as much work to debug the debugging statements as it is to debug <br> the actual program. Once your program is working, why throw this code away? <br> <br>Obviously, you don't want to print out all this debugging information from a program you are ready to submit (or to turn over to <br> your manager). You could comment out your debugging calls, but that can be a lot of work. What's more, in the above example, <br> you would have to replace every return(yes(node)) with return(true), and every return(no(node)) with return false. With all these <br> changes, you might introduce new bugs into your program. <br><br> The simple solution is to make your debugging statements conditional. For example,</p>
+                        
                         <pre>
                             static final boolean debugging = false;
                             static void enter(BinaryTree node) {
@@ -505,6 +500,75 @@ opacity: 1;
                         </pre>
                         <h3>Example: Cindy's Puzzle</h3>
                         <p>I call the following puzzle "Cindy's puzzle" for historical reasons. You have some number n of black marbles and the same number <br> of white marbles, and you have a playing board which consists simply of a line of 2n+1 spaces to put the marbles in. Start with <br> the black marbles all at one end (say, the left), the white marbles all at the other end, and a free space in between.</p>
+
+                        <img src="black-ball.png" alt="Image not found">
+
+                        <p>The black marbles can only move to the right, and the white marbles can only move to the left (no backing up). At each move, a <br>marble can either:</p>
+                        <ul>
+                           <li> Move one space ahead, if that space is clear, or </li>
+                           <li>Jump ahead over exactly one marble of the opposite color, if the space just beyond that marble is clear.</li>
+                        </ul>
+
+                        <p>For example, you could make the following sequence of moves:</p>
+
+
+
+
+
+
+                        <P>
+                    The backtracking method is named solvable and returns a boolean. In solvable we shall need to check whether we are at a leaf, <br> which in this case means a position from which no further moves are possible. This isn't so easy. <br> </P> 
+                    
+                    <p>Now to the program. The main program will initialize the board, and call a recursive backtracking routine to attempt to solve the <br> puzzle. The backtracking routine will either succeed and print out a winning path, or it will fail, and the main program will have to <br>print out the bad news.</p>
+                    <p>The backtracking method is named solvable and returns a boolean. In solvable we shall need to check whether we are at a leaf,<br> which in this case means a position from which no further moves are possible. This isn't so easy.</p> 
+                    <p>Each possible move will result in a new board position, and these new board positions are the children of the current board <br> position. Hence to find the children of a node (that is, of a board position), we need only find the possible moves from that node. <br> Remember that it is also highly desirable to find an ordering on these possible moves.</p>
+                    <p> Here it is time to stop and take thought. To make progress, we must analyze the game to some extent. Probably a number of <br>approaches would work, and what follows is based on the way I worked it out. If you were to program this puzzle, you might find <br> a different but equally valid approach.</p>
+                    <p>First, notice that if a marble has a move, that move is unique: if it can move ahead one square, then it cannot jump. If it can jump,<br> it cannot move ahead one square. This suggests that, to find the possible moves, we might assign numbers to the marbles, and <br>check each marble in turn. When we have looked at all the marbles, we have looked at all the possible moves. This would require <br> having a table to keep track of where each marble is, or else somehow "marking" each marble with its number and searching the <br> board each time to find the marble we want. Neither alternative is very attractive.</p>
+                    <p>Next, notice that for a given board position, each marble occupies a unique space. Hence, instead of talking about moving a <br> particular marble, we can talk about moving the marble in a particular space. If a move is possible from a given space, then that <br> must be the only move possible from that space, because if the marble in that space has a move, it is unique. There is a slight <br>complication because not every space contains a marble, but at least the spaces (unlike the marbles) stay in one place.</p>
+                    
+                    <p><b>
+                        Now we have a simpler ordering of moves to use in our program. Just check, in order, the 2n+1 spaces of the board. For each <br> space, either zero or one moves is possible. With this understanding, we can write a boolean method canMove(int[] board, int <br> position) which determines whether a move is possible from the given position:
+                    </b> </p>
+                    <ul>
+                        <li>If the position is empty, no move is possible;</li>
+                        <li>If the position contains a black marble, the method checks for a move or jump to the right;</li>
+                        <li>If the position contains a white marble, the method checks for a move or jump to the left.</li>
+                    </ul>
+                    <p>
+                        We write another method <b> int[] makeMove(int[] oldBoard, int position) </b>that will take a board and a position, make a move from <br>that position, and return as its value a new board. (We could write this somewhat more efficiently by changing the old board,<br> rather than creating a new one, but here we are more concerned with simplicity.) In technical jargon, makeMove is "applicative" <br> rather than "mutative."<br>
+                        <br> 
+                        Along with <b>canMove and makeMove,</b> we are using methods <b> puzzleSolved and printBoard </b> with meanings that should be obvious. With these methods, our central backtracking method can be written as follows:
+                    </p>
+                    <pre>
+                        boolean solvable(int[] board) {
+                             if (puzzleSolved(board)) {
+                                 return true;
+                                 }
+                                  for (int position = 0; position < BOARD_SIZE; position++) {
+                                     if (canMove(board, position)) {
+                                         int[] newBoard = makeMove(board, position);
+                                          if (solvable(newBoard)) {
+                                             printBoard(newBoard);
+                                              return true;
+                                           }
+                                         }
+                                       }
+                                      return false;
+                                  }
+                    </pre>
+
+                    <p>
+                        Along with canMove and makeMove, we are using methods puzzleSolved and printBoard with meanings that should be obvious. <br> Here is some output from the program:
+                    </p>
+
+                    <p>Remaining Image</p>
+
+                    <p class="div">
+                        Notice that the solution is given in reverse order: BLACK starts out on the left and WHITE on the right, as in the last <br> line. I've added line numbers to the actual output in order to emphasize this point. Backtracking always produces its <br> results (sequence of choices) in reverse order; it is up to you, the programmer, to reverse the results again to get <br> them in the correct order.
+                    
+                    </p>
+
+
                        
             </body>
             </html>
